@@ -1248,7 +1248,7 @@ const ContactUS = () => {
     <>
       <div
         id="contactus"
-        className="max-w-[1392px] mx-auto px-4 lg:px-24 mt-48 flex gap-20"
+        className="max-w-[1392px] mx-auto px-4 lg:px-24 mt-48 flex flex-col lg:flex-row gap-20"
       >
         <h2 className="flex-1 text-3xl lg:text-5xl text-custom-white font-bold">
           Contact Us
@@ -1258,7 +1258,50 @@ const ContactUS = () => {
             hear from you. Please get in touch using the form below
           </div>
         </h2>
-        <div className="flex-1">Hello</div>
+        <div className="flex-1 ">
+          <form onSubmit={(e) => e.preventDefault()}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <input
+                type="text"
+                placeholder="Name"
+                className="w-full p-3 text-custom-white placeholder-custom-white/75 bg-black rounded-full border-2 border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600"
+              />
+              <input
+                type="text"
+                placeholder="Company, title"
+                className="w-full p-3 text-custom-white placeholder-custom-white/75 bg-black rounded-full border-2 border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600"
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                className="w-full p-3 text-custom-white placeholder-custom-white/75 bg-black rounded-full border-2 border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600"
+              />
+              <input
+                type="text"
+                placeholder="Phone number"
+                className="w-full p-3 text-custom-white placeholder-custom-white/75 bg-black rounded-full border-2 border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600"
+              />
+            </div>
+            <textarea
+              placeholder="Message..."
+              className="w-full min-h-32 p-3 text-custom-white placeholder-custom-white/75 bg-black rounded-2xl border-2 border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600"
+            ></textarea>
+            <div className="mt-6 flex gap-4">
+              <button
+                type="submit"
+                className="px-8 py-3 text-white bg-purple-600 hover:bg-purple-700 rounded-full transition-all"
+              >
+                Send
+              </button>
+              <button
+                type="button"
+                className="px-8 py-3 text-custom-white bg-transparent border border-gray-500 hover:border-custom-white rounded-full transition-all"
+              >
+                Contact via email
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );
