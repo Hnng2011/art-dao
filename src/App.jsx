@@ -736,11 +736,12 @@ const RoadMapSection = () => {
 
         <div className="mt-24 lg:mt-16 grid grid-cols-1 lg:grid-cols-3 gap-y-26 lg:gap-y-0">
           <motion.div
+            key={1}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true }}
             transition={{
-              amount: 0.8,
+              amount: 1,
             }}
             className="p-4 relative"
             style={{
@@ -783,11 +784,12 @@ const RoadMapSection = () => {
           </motion.div>
 
           <motion.div
+            key={2}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true }}
             transition={{
-              amount: 0.8,
+              amount: 1,
             }}
             className="hidden lg:flex lg:col-span-2 items-center justify-start"
           >
@@ -796,11 +798,12 @@ const RoadMapSection = () => {
           </motion.div>
 
           <motion.div
+            key={3}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true }}
             transition={{
-              amount: 0.8,
+              amount: 1,
             }}
             className="hidden lg:flex lg:col-span-2 items-center justify-end"
           >
@@ -808,11 +811,12 @@ const RoadMapSection = () => {
             <div className="w-[75%] h-1 bg-[#FC71F7]"></div>
           </motion.div>
           <motion.div
+            key={3}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true }}
             transition={{
-              amount: 0.8,
+              amount: 1,
             }}
             className="p-4 relative"
             style={{
@@ -853,11 +857,12 @@ const RoadMapSection = () => {
           </motion.div>
 
           <motion.div
+            key={4}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true }}
             transition={{
-              amount: 0.8,
+              amount: 1,
             }}
             className="p-4 relative"
             style={{
@@ -898,11 +903,12 @@ const RoadMapSection = () => {
             </ul>
           </motion.div>
           <motion.div
+            key={5}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true }}
             transition={{
-              amount: 0.8,
+              amount: 1,
             }}
             className="hidden lg:flex lg:col-span-2 items-center"
           >
@@ -911,11 +917,12 @@ const RoadMapSection = () => {
           </motion.div>
 
           <motion.div
+            key={6}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true }}
             transition={{
-              amount: 0.8,
+              amount: 1,
             }}
             className="hidden lg:flex lg:col-span-2 items-center justify-end"
           >
@@ -923,11 +930,12 @@ const RoadMapSection = () => {
             <div className="w-[75%] h-1 bg-[#FC71F7]"></div>
           </motion.div>
           <motion.div
+            key={7}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true }}
             transition={{
-              amount: 0.8,
+              amount: 1,
             }}
             className="p-4 relative"
             style={{
@@ -972,11 +980,12 @@ const RoadMapSection = () => {
           </motion.div>
 
           <motion.div
+            key={8}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true }}
             transition={{
-              amount: 0.8,
+              amount: 1,
             }}
             className="p-4 relative"
             style={{
@@ -1019,11 +1028,12 @@ const RoadMapSection = () => {
             </ul>
           </motion.div>
           <motion.div
+            key={9}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true }}
             transition={{
-              amount: 0.8,
+              amount: 1,
             }}
             className="hidden lg:flex lg:col-span-2 items-center"
           >
@@ -1032,20 +1042,22 @@ const RoadMapSection = () => {
           </motion.div>
 
           <motion.div
+            key={10}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true }}
             transition={{
-              amount: 0.8,
+              amount: 1,
             }}
             className="hidden lg:block lg:col-span-2"
           ></motion.div>
           <motion.div
+            key={11}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true }}
             transition={{
-              amount: 0.8,
+              amount: 1,
             }}
             className="p-4 relative"
             style={{
