@@ -738,7 +738,7 @@ const RoadMapSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{
               amount: 0.8,
             }}
@@ -785,7 +785,7 @@ const RoadMapSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{
               amount: 0.8,
             }}
@@ -798,7 +798,7 @@ const RoadMapSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{
               amount: 0.8,
             }}
@@ -810,7 +810,7 @@ const RoadMapSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{
               amount: 0.8,
             }}
@@ -855,7 +855,7 @@ const RoadMapSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{
               amount: 0.8,
             }}
@@ -900,7 +900,7 @@ const RoadMapSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{
               amount: 0.8,
             }}
@@ -913,7 +913,7 @@ const RoadMapSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{
               amount: 0.8,
             }}
@@ -925,7 +925,7 @@ const RoadMapSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{
               amount: 0.8,
             }}
@@ -974,7 +974,7 @@ const RoadMapSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{
               amount: 0.8,
             }}
@@ -1021,7 +1021,7 @@ const RoadMapSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{
               amount: 0.8,
             }}
@@ -1034,7 +1034,7 @@ const RoadMapSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{
               amount: 0.8,
             }}
@@ -1043,7 +1043,7 @@ const RoadMapSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{
               amount: 0.8,
             }}
@@ -1092,8 +1092,17 @@ const RoadMapSection = () => {
 
 const LuckyWheel = () => {
   return (
-    <div>
-      <img src={luckywheel} className="h-20 w-20" />
+    <div className="flex justify-center mt-24 items-center overflow-hidden py-10 relative">
+      <div className="absolute top-1/2 left-1/2 text-3xl lg:text-5xl z-10 -translate-x-1/2 -translate-y-1/2 font-bold text-custom-white">
+        <div>Lucky Wheel</div>
+        <div className="text-xl lg:text-3xl text-center mt-2 text-theme">
+          Coming Soon
+        </div>
+      </div>
+      <img
+        src={luckywheel}
+        className="h-[800px] aspect-square blur-xl brightness-50 animate-spin relative z-0"
+      />
     </div>
   );
 };
@@ -1165,6 +1174,7 @@ function App() {
             <CarouselSection />
             <NFTSection />
             <RoadMapSection />
+            <LuckyWheel />
           </div>
         </div>
       </>
