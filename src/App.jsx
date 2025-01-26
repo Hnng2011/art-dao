@@ -36,6 +36,8 @@ import Number4 from "./assets/Number4.svg";
 import Number5 from "./assets/Number5.svg";
 import Number6 from "./assets/Number6.svg";
 
+import luckywheel from "./assets/luckywheel.png";
+
 const imageList = [
   Number1,
   Number2,
@@ -1088,6 +1090,14 @@ const RoadMapSection = () => {
   );
 };
 
+const LuckyWheel = () => {
+  return (
+    <div>
+      <img src={luckywheel} className="h-20 w-20" />
+    </div>
+  );
+};
+
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -1116,30 +1126,38 @@ function App() {
 
   return (
     <div className="min-h-screen h-full w-full bg-main-bg font-bevietnampro relative overflow-x-hidden">
-      {!isLoaded ? (
-        <div className="h-screen w-screen flex flex-col gap-10 items-center justify-center">
-          <img loading="eager" src={Logo} />
-          <div className="flex space-x-2">
-            {[0, 1, 2].map((dot, index) => (
-              <motion.div
-                key={dot}
-                className="w-4 h-4 bg-custom-white rounded-full"
-                initial={{ y: 0 }}
-                animate={{
-                  y: [-10, 0],
-                }}
-                transition={{
-                  repeat: Infinity, // Lặp lại vô hạn
-                  repeatType: "mirror", // Quay lại khi kết thúc
-                  duration: 0.4, // Thời gian cho mỗi vòng lặp
-                  delay: dot * 0.2, // Thêm độ trễ cho từng chấm
-                }}
-              />
-            ))}
+      <>
+        <div
+          className={`${
+            !isLoaded ? "opacity-100" : "opacity-0"
+          } duration-300 fixed pointer-events-none h-screen w-screen`}
+        >
+          <div className="h-screen w-screen flex flex-col gap-10 items-center justify-center">
+            <img loading="eager" src={Logo} />
+            <div className="flex space-x-2">
+              {[0, 1, 2].map((dot, index) => (
+                <motion.div
+                  key={dot}
+                  className="w-4 h-4 bg-custom-white rounded-full"
+                  initial={{ y: 0 }}
+                  animate={{
+                    y: [-10, 0],
+                  }}
+                  transition={{
+                    repeat: Infinity, // Lặp lại vô hạn
+                    repeatType: "mirror", // Quay lại khi kết thúc
+                    duration: 0.4, // Thời gian cho mỗi vòng lặp
+                    delay: dot * 0.2, // Thêm độ trễ cho từng chấm
+                  }}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      ) : (
-        <>
+
+        <div
+          className={`${isLoaded ? "opacity-100" : "opacity-0"} duration-300`}
+        >
           <BackGround />
           <div className="relative z-10 py-6">
             <Header />
@@ -1148,8 +1166,8 @@ function App() {
             <NFTSection />
             <RoadMapSection />
           </div>
-        </>
-      )}
+        </div>
+      </>
     </div>
   );
 }
