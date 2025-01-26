@@ -495,7 +495,7 @@ const CarouselSection = () => {
         </div>
       </div>
 
-      <div className="absolute flex justify-center mx-auto gap-4 w-full perspective-near brightness-20 top-0 z-10 blur pointer-events-none">
+      <div className="absolute flex justify-center mx-auto gap-4 w-full perspective-near brightness-15 top-0 z-10 pointer-events-none">
         <div className="flex-1  rotate-y-12">
           <img
             src={Photo1}
@@ -733,7 +733,7 @@ const NFTSection = () => {
 
 const RoadMapSection = () => {
   return (
-    <div className="max-w-[1392px] mx-auto px-4 lg:px-24 mt-48 relative">
+    <div className="max-w-[1392px] mx-auto px-4 lg:px-24 mt-64 relative">
       <div
         className="absolute right-0 top-0 blur-[96px] aspect-square brightness-75 translate-x-2/3"
         style={{
@@ -762,7 +762,7 @@ const RoadMapSection = () => {
             key={1}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.4 }}
             transition={{
               amount: 1,
             }}
@@ -810,7 +810,7 @@ const RoadMapSection = () => {
             key={2}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.4 }}
             transition={{
               amount: 1,
             }}
@@ -824,7 +824,7 @@ const RoadMapSection = () => {
             key={3}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.4 }}
             transition={{
               amount: 1,
             }}
@@ -837,7 +837,7 @@ const RoadMapSection = () => {
             key={3}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.4 }}
             transition={{
               amount: 1,
             }}
@@ -883,7 +883,7 @@ const RoadMapSection = () => {
             key={4}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.4 }}
             transition={{
               amount: 1,
             }}
@@ -929,7 +929,7 @@ const RoadMapSection = () => {
             key={5}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.4 }}
             transition={{
               amount: 1,
             }}
@@ -943,7 +943,7 @@ const RoadMapSection = () => {
             key={6}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.4 }}
             transition={{
               amount: 1,
             }}
@@ -956,7 +956,7 @@ const RoadMapSection = () => {
             key={7}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.4 }}
             transition={{
               amount: 1,
             }}
@@ -1006,7 +1006,7 @@ const RoadMapSection = () => {
             key={8}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.4 }}
             transition={{
               amount: 1,
             }}
@@ -1054,7 +1054,7 @@ const RoadMapSection = () => {
             key={9}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.4 }}
             transition={{
               amount: 1,
             }}
@@ -1068,7 +1068,7 @@ const RoadMapSection = () => {
             key={10}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.4 }}
             transition={{
               amount: 1,
             }}
@@ -1078,7 +1078,7 @@ const RoadMapSection = () => {
             key={11}
             initial={{ opacity: 0, y: 150 }} // Bắt đầu ẩn và trôi xuống
             whileInView={{ opacity: 1, y: 0 }} // Hiện lên và trôi về vị trí ban đầu
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.4 }}
             transition={{
               amount: 1,
             }}
