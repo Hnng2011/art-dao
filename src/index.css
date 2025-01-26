@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+  --color-main-bg: #080e0c;
+  --color-custom-white: #d9ffde;
+  --color-theme: #fc71f7;
+  --font-bevietnampro: "Be Vietnam Pro", "sans-serif";
+}
