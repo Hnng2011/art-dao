@@ -387,6 +387,20 @@ const Marquee_3 = () => {
 };
 
 const HeroSection = () => {
+  const scrollToWhyArtDAO = () => {
+    const targetSection = document.getElementById("whyartdao");
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToContactUs = () => {
+    const targetSection = document.getElementById("contactus");
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="mt-8 text-custom-white h-screen relative z-0">
       <div className="absolute left-0 top-0 w-screen h-screen -translate-y-[88px] lg:-translate-y-[120px]">
@@ -435,11 +449,17 @@ const HeroSection = () => {
           </div>
 
           <div className="flex gap-8 mt-8">
-            <button className="px-6 py-2 text-center bg-theme  rounded-tr-2xl rounded-bl-2xl">
+            <button
+              onClick={scrollToWhyArtDAO}
+              className="px-6 py-2 text-center bg-theme  rounded-tr-2xl rounded-bl-2xl cursor-pointer"
+            >
               🌟 Why ArtDAO?
             </button>
-            <button className="px-6 py-2arn text-center border-theme border-2 rounded-tr-2xl rounded-bl-2xl">
-              Join Us
+            <button
+              onClick={scrollToContactUs}
+              className="px-6 py-2arn text-center border-theme border-2 rounded-tr-2xl rounded-bl-2xl cursor-pointer"
+            >
+              Contact Us
             </button>
           </div>
         </div>
@@ -507,7 +527,10 @@ const CarouselSection = () => {
         </div>
       </div>
 
-      <div className="relative z-10 max-w-[1392px] mx-auto px-4 lg:px-24 text-custom-white flex flex-col lg:flex-row justify-between w-full gap-16">
+      <div
+        id="whyartdao"
+        className="relative z-10 max-w-[1392px] mx-auto px-4 lg:px-24 text-custom-white flex flex-col lg:flex-row justify-between w-full gap-16"
+      >
         <div className="max-w-[500px]">
           <h2 className="text-3xl lg:text-5xl font-bold flex-shrink-0">
             Why #ArtDAO
@@ -1104,7 +1127,108 @@ const RoadMapSection = () => {
 
 const LuckyWheel = () => {
   return (
-    <div className="flex justify-center mt-24 items-center overflow-hidden py-10 relative">
+    <div className="flex justify-center mt-24 items-center overflow-hidden py-10 relative shadow-theme shadow-2xl">
+      <motion.div
+        animate={{
+          x: [0, "-50%"],
+        }}
+        transition={{
+          repeat: Infinity,
+          duration: 10,
+          ease: "linear",
+        }}
+        className="absolute z-10 flex -rotate-90 right-1/3 top-0 justify-end"
+      >
+        <div
+          style={{
+            WebkitTextFillColor: "transparent",
+            WebkitTextStrokeWidth: "2px",
+            WebkitTextStrokeColor: "#fc71f7",
+            color: "#fc71f7",
+          }}
+          className="text-transparent text-6xl font-bold uppercase"
+        >
+          Lucky
+        </div>
+        <div
+          style={{
+            WebkitTextFillColor: "transparent",
+            WebkitTextStrokeWidth: "2px",
+            WebkitTextStrokeColor: "#fc71f7",
+            color: "#fc71f7",
+          }}
+          className="text-transparent text-6xl font-bold uppercase"
+        >
+          Lucky
+        </div>
+        <div
+          style={{
+            WebkitTextFillColor: "transparent",
+            WebkitTextStrokeWidth: "2px",
+            WebkitTextStrokeColor: "#fc71f7",
+            color: "#fc71f7",
+          }}
+          className="text-transparent text-6xl font-bold uppercase"
+        >
+          Lucky
+        </div>
+        <div
+          style={{
+            WebkitTextFillColor: "transparent",
+            WebkitTextStrokeWidth: "2px",
+            WebkitTextStrokeColor: "#fc71f7",
+            color: "#fc71f7",
+          }}
+          className="text-transparent text-6xl font-bold uppercase"
+        >
+          Lucky
+        </div>
+        <div
+          style={{
+            WebkitTextFillColor: "transparent",
+            WebkitTextStrokeWidth: "2px",
+            WebkitTextStrokeColor: "#fc71f7",
+            color: "#fc71f7",
+          }}
+          className="text-transparent text-6xl font-bold uppercase"
+        >
+          Lucky
+        </div>
+        <div
+          style={{
+            WebkitTextFillColor: "transparent",
+            WebkitTextStrokeWidth: "2px",
+            WebkitTextStrokeColor: "#fc71f7",
+            color: "#fc71f7",
+          }}
+          className="text-transparent text-6xl font-bold uppercase"
+        >
+          Lucky
+        </div>
+        <div
+          style={{
+            WebkitTextFillColor: "transparent",
+            WebkitTextStrokeWidth: "2px",
+            WebkitTextStrokeColor: "#fc71f7",
+            color: "#fc71f7",
+          }}
+          className="text-transparent text-6xl font-bold uppercase"
+        >
+          Lucky
+        </div>
+        <div
+          style={{
+            WebkitTextFillColor: "transparent",
+            WebkitTextStrokeWidth: "2px",
+            WebkitTextStrokeColor: "#fc71f7",
+            color: "#fc71f7",
+          }}
+          className="text-transparent text-6xl font-bold uppercase"
+        >
+          Lucky
+        </div>
+      </motion.div>
+
       <div className="absolute top-1/2 left-1/2 text-3xl lg:text-5xl z-10 -translate-x-1/2 -translate-y-1/2 font-bold text-custom-white">
         <div>Lucky Wheel</div>
         <div className="text-xl lg:text-3xl text-center mt-2 text-theme">
@@ -1113,9 +1237,30 @@ const LuckyWheel = () => {
       </div>
       <img
         src={luckywheel}
-        className="h-[800px] aspect-square blur-xl brightness-50 animate-spin relative z-0"
+        className="w-2/3 lg:w-auto lg:h-[800px] aspect-square blur-xl brightness-50 animate-spin relative z-0"
       />
     </div>
+  );
+};
+
+const ContactUS = () => {
+  return (
+    <>
+      <div
+        id="contactus"
+        className="max-w-[1392px] mx-auto px-4 lg:px-24 mt-48 flex gap-20"
+      >
+        <h2 className="flex-1 text-3xl lg:text-5xl text-custom-white font-bold">
+          Contact Us
+          <div className="text-sm font-normal text-custom-white/50 mt-4">
+            If you are interested in exploring partnership opportunities,
+            collaborations, or any business-related inquiries, we would love to
+            hear from you. Please get in touch using the form below
+          </div>
+        </h2>
+        <div className="flex-1">Hello</div>
+      </div>
+    </>
   );
 };
 
@@ -1187,6 +1332,7 @@ function App() {
             <NFTSection />
             <RoadMapSection />
             <LuckyWheel />
+            <ContactUS />
           </div>
         </div>
       </>
