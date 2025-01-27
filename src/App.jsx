@@ -37,6 +37,9 @@ import Number5 from "./assets/Number5.svg";
 import Number6 from "./assets/Number6.svg";
 
 import luckywheel from "./assets/luckywheel.png";
+import Discord from "./assets/discord.svg";
+import X from "./assets/x.svg";
+import Telegram from "./assets/telegram.svg";
 
 const imageList = [
   Number1,
@@ -70,9 +73,77 @@ const imageList = [
 ];
 
 const Header = () => {
+  const scrollToWhyArtDAO = () => {
+    const targetSection = document.getElementById("whyartdao");
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToOurNFT = () => {
+    const targetSection = document.getElementById("ournft");
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToRoadmap = () => {
+    const targetSection = document.getElementById("roadmap");
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToLuckyWheel = () => {
+    const targetSection = document.getElementById("luckywheel");
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToContactUs = () => {
+    const targetSection = document.getElementById("contactus");
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div className="w-full max-w-[1792px] mx-auto px-4 lg:px-24 relative z-10">
-      <img src={Logo} className="h-8 lg:h-16" />
+      <div className="flex gap-20">
+        <img src={Logo} className="h-8 lg:h-16" />
+        <div className="flex gap-4 text-custom-white">
+          <button
+            onClick={scrollToWhyArtDAO}
+            className="hover:opacity-55 cursor-pointer"
+          >
+            Why ArtDAO?
+          </button>
+          <button
+            onClick={scrollToOurNFT}
+            className="hover:opacity-55 cursor-pointer"
+          >
+            Our NFT
+          </button>
+          <button
+            onClick={scrollToRoadmap}
+            className="hover:opacity-55 cursor-pointer"
+          >
+            Roadmap
+          </button>
+          <button
+            onClick={scrollToLuckyWheel}
+            className="hover:opacity-55 cursor-pointer"
+          >
+            Lucky wheel
+          </button>
+          <button
+            onClick={scrollToContactUs}
+            className="hover:opacity-55 cursor-pointer"
+          >
+            Contact partner
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
@@ -459,7 +530,7 @@ const HeroSection = () => {
               onClick={scrollToContactUs}
               className="px-6 py-2arn text-center border-theme border-2 rounded-tr-2xl rounded-bl-2xl cursor-pointer"
             >
-              Contact Us
+              Contact Partner
             </button>
           </div>
         </div>
@@ -677,7 +748,10 @@ const NFTSection = () => {
   }, []);
 
   return (
-    <div className="max-w-[1392px] mx-auto px-6 lg:px-24 mt-48 relative">
+    <div
+      className="max-w-[1392px] mx-auto px-6 lg:px-24 mt-48 relative"
+      id="ournft"
+    >
       <div className="absolute left-[-20%] top-0 z-0">
         <img alt="bg" src={SuperToroid} />
       </div>
@@ -733,7 +807,10 @@ const NFTSection = () => {
 
 const RoadMapSection = () => {
   return (
-    <div className="max-w-[1392px] mx-auto px-4 lg:px-24 mt-64 relative">
+    <div
+      className="max-w-[1392px] mx-auto px-4 lg:px-24 mt-64 relative"
+      id="roadmap"
+    >
       <div
         className="absolute right-0 top-0 blur-[96px] aspect-square brightness-75 translate-x-2/3"
         style={{
@@ -1127,7 +1204,10 @@ const RoadMapSection = () => {
 
 const LuckyWheel = () => {
   return (
-    <div className="flex justify-center mt-24 items-center overflow-hidden py-10 relative shadow-theme shadow-2xl">
+    <div
+      id="luckywheel"
+      className="flex justify-center mt-24 items-center overflow-hidden py-10 relative shadow-theme shadow-2xl"
+    >
       <motion.div
         animate={{
           x: [0, "-50%"],
@@ -1251,11 +1331,34 @@ const ContactUS = () => {
         className="max-w-[1392px] mx-auto px-4 lg:px-24 mt-48 flex flex-col lg:flex-row gap-20"
       >
         <h2 className="flex-1 text-3xl lg:text-5xl text-custom-white font-bold">
-          Contact Us
+          Contact Partner
           <div className="text-sm font-normal text-custom-white/50 mt-4">
             If you are interested in exploring partnership opportunities,
             collaborations, or any business-related inquiries, we would love to
             hear from you. Please get in touch using the form below
+          </div>
+          <div className="flex gap-4 mt-4">
+            <a
+              href="https://discord.gg/ngMkRJrR"
+              target="_blank"
+              className="cursor-pointer"
+            >
+              {<img src={Discord} alt="discord" className="w-8 h-8" />}
+            </a>
+            <a
+              href="https://x.com/Artdaodotfun"
+              target="_blank"
+              className="cursor-pointer"
+            >
+              {<img src={X} alt="discord" className="w-8 h-8" />}
+            </a>
+            <a
+              href="https://t.me/Artdaodotfun"
+              target="_blank"
+              className="cursor-pointer"
+            >
+              {<img src={Telegram} alt="discord" className="w-8 h-8" />}
+            </a>
           </div>
         </h2>
         <div className="flex-1 ">
