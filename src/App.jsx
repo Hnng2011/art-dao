@@ -111,7 +111,7 @@ const Header = () => {
     <div className="w-full max-w-[1792px] mx-auto px-4 lg:px-24 relative z-10">
       <div className="flex gap-20">
         <img src={Logo} className="h-8 lg:h-16" />
-        <div className="flex gap-4 text-custom-white">
+        <div className="hidden md:flex gap-4 text-custom-white">
           <button
             onClick={scrollToWhyArtDAO}
             className="hover:opacity-55 cursor-pointer"
