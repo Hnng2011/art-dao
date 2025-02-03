@@ -857,7 +857,7 @@ const RoadMapSection = () => {
             <div className="text-lg">Fundraising & SOL Ecosystem Entry</div>
             <div className="flex gap-2 text-sm mt-2">
               <img src={Arrow} alt="icon" />
-              <span>Target Raise: 999 SOL</span>
+              <span>Target Raise: 360 SOL</span>
             </div>
             <div className="flex gap-2 items-baseline text-sm mt-2">
               <img src={Arrow} alt="icon" />
@@ -1346,7 +1346,7 @@ const ContactUS = () => {
               {<img src={Discord} alt="discord" className="w-8 h-8" />}
             </a>
             <a
-              href="https://x.com/Artdaodotfun"
+              href="https://x.com/artistdaofun"
               target="_blank"
               className="cursor-pointer"
             >
