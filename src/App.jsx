@@ -1339,7 +1339,7 @@ const ContactUS = () => {
           </div>
           <div className="flex gap-4 mt-4">
             <a
-              href="https://discord.gg/ngMkRJrR"
+              href="https://discord.gg/artistdao"
               target="_blank"
               className="cursor-pointer"
             >
