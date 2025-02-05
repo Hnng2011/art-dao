@@ -143,6 +143,12 @@ const Header = () => {
           >
             Contact partner
           </button>
+          <button
+            onClick={() => (window.location.href = "https://docs.artdao.fun/")}
+            className="hover:opacity-55 cursor-pointer"
+          >
+            Documents
+          </button>
         </div>
       </div>
     </div>
