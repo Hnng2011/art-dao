@@ -40,6 +40,7 @@ import luckywheel from "./assets/luckywheel.png";
 import Discord from "./assets/discord.svg";
 import X from "./assets/x.svg";
 import Telegram from "./assets/telegram.svg";
+import Docs from "./assets/docs.svg";
 
 const imageList = [
   Number1,
@@ -1358,6 +1359,13 @@ const ContactUS = () => {
               className="cursor-pointer"
             >
               {<img src={Telegram} alt="discord" className="w-8 h-8" />}
+            </a>
+            <a
+              href="https://docs.artdao.fun/"
+              target="_blank"
+              className="cursor-pointer"
+            >
+              {<img src={Docs} alt="docs" className="w-8 h-8" />}
             </a>
           </div>
         </h2>
