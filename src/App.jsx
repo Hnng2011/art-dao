@@ -36,6 +36,17 @@ import Number4 from "./assets/Number4.svg";
 import Number5 from "./assets/Number5.svg";
 import Number6 from "./assets/Number6.svg";
 
+import Verify1 from "./assets/verify/1.png";
+import Verify2 from "./assets/verify/2.png";
+import Verify3 from "./assets/verify/3.png";
+import Verify4 from "./assets/verify/4.png";
+import Verify5 from "./assets/verify/5.png";
+import Verify6 from "./assets/verify/6.png";
+import Verify7 from "./assets/verify/7.png";
+import Verify8 from "./assets/verify/8.png";
+import Verify9 from "./assets/verify/9.png";
+import Verify10 from "./assets/verify/10.png";
+
 import luckywheel from "./assets/luckywheel.png";
 import Discord from "./assets/discord.svg";
 import X from "./assets/x.svg";
@@ -74,6 +85,13 @@ const imageList = [
 ];
 
 const Header = () => {
+  const scrollToArtist = () => {
+    const targetSection = document.getElementById("artist");
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const scrollToWhyArtDAO = () => {
     const targetSection = document.getElementById("whyartdao");
     if (targetSection) {
@@ -118,6 +136,12 @@ const Header = () => {
             className="hover:opacity-55 cursor-pointer"
           >
             Why ArtDAO?
+          </button>
+          <button
+            onClick={scrollToArtist}
+            className="hover:opacity-55 cursor-pointer"
+          >
+            Artist
           </button>
           <button
             onClick={scrollToOurNFT}
@@ -400,7 +424,27 @@ const Marquee_3 = () => {
           className="aspect-square w-44 lg:w-72 rounded-xl -skew-x-12"
         />
         <img
-          src={NFT7}
+          src={NFT1}
+          className="aspect-square w-44 lg:w-72 rounded-xl -skew-x-12"
+        />
+        <img
+          src={NFT2}
+          className="aspect-square w-44 lg:w-72 rounded-xl -skew-x-12"
+        />
+        <img
+          src={NFT3}
+          className="aspect-square w-44 lg:w-72 rounded-xl -skew-x-12"
+        />
+        <img
+          src={NFT4}
+          className="aspect-square w-44 lg:w-72 rounded-xl -skew-x-12"
+        />
+        <img
+          src={NFT5}
+          className="aspect-square w-44 lg:w-72 rounded-xl -skew-x-12"
+        />
+        <img
+          src={NFT6}
           className="aspect-square w-44 lg:w-72 rounded-xl -skew-x-12"
         />
         <img
@@ -427,38 +471,55 @@ const Marquee_3 = () => {
           src={NFT6}
           className="aspect-square w-44 lg:w-72 rounded-xl -skew-x-12"
         />
-        <img
-          src={NFT7}
-          className="aspect-square w-44 lg:w-72 rounded-xl -skew-x-12"
-        />
-        <img
-          src={NFT1}
-          className="aspect-square w-44 lg:w-72 rounded-xl -skew-x-12"
-        />
-        <img
-          src={NFT2}
-          className="aspect-square w-44 lg:w-72 rounded-xl -skew-x-12"
-        />
-        <img
-          src={NFT3}
-          className="aspect-square w-44 lg:w-72 rounded-xl -skew-x-12"
-        />
-        <img
-          src={NFT4}
-          className="aspect-square w-44 lg:w-72 rounded-xl -skew-x-12"
-        />
-        <img
-          src={NFT5}
-          className="aspect-square w-44 lg:w-72 rounded-xl -skew-x-12"
-        />
-        <img
-          src={NFT6}
-          className="aspect-square w-44 lg:w-72 rounded-xl -skew-x-12"
-        />
-        <img
-          src={NFT7}
-          className="aspect-square w-44 lg:w-72 rounded-xl -skew-x-12"
-        />
+      </motion.div>
+    </div>
+  );
+};
+
+const Marquee_4 = () => {
+  const verifyImages = [
+    Verify1,
+    Verify2,
+    Verify3,
+    Verify4,
+    Verify5,
+    Verify6,
+    Verify7,
+    Verify8,
+    Verify9,
+    Verify10,
+  ];
+  return (
+    <div className="overflow-hidden whitespace-nowrap mt-4">
+      <motion.div
+        className="inline-block text-white text-xl font-bold"
+        animate={{
+          x: [0, -(verifyImages.length * 240 + 12 * verifyImages.length)],
+        }}
+        transition={{
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 55,
+          ease: "linear",
+        }}
+        style={{ display: "flex", gap: 12 }}
+      >
+        {verifyImages.map((imageSrc, index) => (
+          <img
+            key={index}
+            src={imageSrc}
+            alt={`Verification ${index + 1}`}
+            className="aspect-square w-44 lg:w-60 rounded-xl"
+          />
+        ))}
+        {verifyImages.map((imageSrc, index) => (
+          <img
+            key={index}
+            src={imageSrc}
+            alt={`Verification ${index + 1}`}
+            className="aspect-square w-44 lg:w-60 rounded-xl"
+          />
+        ))}
       </motion.div>
     </div>
   );
@@ -535,12 +596,42 @@ const HeroSection = () => {
             </button>
             <button
               onClick={scrollToContactUs}
-              className="px-6 py-2arn text-center border-theme border-2 rounded-tr-2xl rounded-bl-2xl cursor-pointer"
+              className="px-6 py-2 text-center border-theme border-2 rounded-tr-2xl rounded-bl-2xl cursor-pointer"
             >
               Contact Partner
             </button>
           </div>
         </div>
+      </div>
+    </div>
+  );
+};
+
+const ArtistSection = () => {
+  return (
+    <div
+      id="artist"
+      className="text-custom-white z-10 max-w-[1392px] mx-auto px-4 lg:px-24 relative mb-48"
+    >
+      <div className="absolute top-0 left-[25%] h-1/3 aspect-video brightness-40 blur-[96px] z-0 pointer-events-none">
+        <div className="relative h-full w-full bg-red">
+          <div className="h-full w-full bg-[#DF6F89] -rotate-z-[45deg] -translate-y-28 translate-24 absolute top-0 z-[0]" />
+          <div className="h-2/3 w-full bg-[#46A7CE] rotate-z-[45deg] -translate-y-[18px] -translate-[126px] absolute top-0 z-[1]" />
+          <div
+            style={{ clipPath: "polygon(50% 100%, 0 0, 100% 0)" }}
+            className="h-full w-full bg-[#D76FEF] absolute z-[2] -translate-y-40"
+          />
+        </div>
+      </div>
+
+      <h2 className="text-3xl lg:text-5xl font-bold text-center mb-10">
+        Certified Artist
+      </h2>
+      <Marquee_4 />
+      <div className="w-full mt-6 flex justify-center">
+        <button className="px-6 py-2 text-center border-theme border-2 rounded-tr-2xl rounded-bl-2xl cursor-pointer bg-theme hover:bg-theme/20 duration-300">
+          Register
+        </button>
       </div>
     </div>
   );
@@ -562,7 +653,7 @@ const CarouselSection = () => {
 
   return (
     <div className="relative">
-      <div className="absolute top-0 left-[25%] h-1/3 aspect-video brightness-40 blur-[96px] z-0 pointer-events-none">
+      <div className="absolute top-0 right-[25%] h-1/3 aspect-video brightness-40 blur-[96px] z-0 pointer-events-none">
         <div className="relative h-full w-full bg-red">
           <div className="h-full w-full bg-[#DF6F89] -rotate-z-[45deg] -translate-y-28 translate-24 absolute top-0 z-[0]" />
           <div className="h-2/3 w-full bg-[#46A7CE] rotate-z-[45deg] -translate-y-[18px] -translate-[126px] absolute top-0 z-[1]" />
@@ -1488,6 +1579,7 @@ function App() {
           <div className="relative z-10 py-6">
             <Header />
             <HeroSection />
+            <ArtistSection />
             <CarouselSection />
             <NFTSection />
             <RoadMapSection />
