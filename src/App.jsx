@@ -53,6 +53,7 @@ import Discord from "./assets/discord.svg";
 import X from "./assets/x.svg";
 import Telegram from "./assets/telegram.svg";
 import Docs from "./assets/docs.svg";
+import { Download } from "lucide-react";
 
 const imageList = [
   Number1,
@@ -1578,21 +1579,29 @@ function App() {
     `Huge news! I’ve joined @Artistdaofun! This journey’s about to get even more colorful. If you’re excited too, register here: ${window.location.origin}/#artist Let’s spread the word!`
   );
 
-  const handleCopyImage = async (url) => {
+  const handleDownloadImage = async (
+    url,
+    filename = "artistdao_verified.png"
+  ) => {
     try {
-      const imageUrl = url;
-
-      const response = await fetch(imageUrl);
+      const response = await fetch(url);
       if (!response.ok) {
-        throw new Error("Lỗi khi tải ảnh");
+        throw new Error("Error when load Image");
       }
-
       const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
 
-      const clipboardItem = new ClipboardItem({ [blob.type]: blob });
-      await navigator.clipboard.write([clipboardItem]);
-      alert("Copied");
-    } catch (error) {}
+      const a = document.createElement("a");
+      a.href = blobUrl;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+
+      document.body.removeChild(a);
+      URL.revokeObjectURL(blobUrl);
+    } catch (error) {
+      console.error("Error when download image:", error);
+    }
   };
 
   return (
@@ -1627,14 +1636,16 @@ function App() {
                 </a>
 
                 <button
-                  className="border-theme border-2 cursor-pointer px-4 py-2 rounded-2xl text-custom-white"
                   onClick={() =>
-                    handleCopyImage(
+                    handleDownloadImage(
                       `https://jzzswotezxkfxkwottgk.supabase.co/storage/v1/object/public/certificates/certificates/${id}.png`
                     )
                   }
+                  download
+                  className="border-theme border-2 cursor-pointer px-4 py-2 rounded-2xl text-custom-white inline-flex gap-4 justify-center items-center"
                 >
-                  Copy Image
+                  <Download className="h-6 w-6 text-custom-white" />
+                  Download Image
                 </button>
               </div>
             </div>,
