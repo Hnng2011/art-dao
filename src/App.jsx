@@ -1539,7 +1539,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setModalOpen(true);
+    id && setModalOpen(true);
   }, [id]);
 
   useEffect(() => {
