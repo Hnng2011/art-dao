@@ -27,6 +27,7 @@ import NFT10 from "./assets/nft/10.png";
 import { Plus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Arrow from "./assets/arrow.svg";
 
 import Number1 from "./assets/Number1.svg";
@@ -629,7 +630,12 @@ const ArtistSection = () => {
       </h2>
       <Marquee_4 />
       <div className="w-full mt-6 flex justify-center">
-        <button className="px-6 py-2 text-center border-theme border-2 rounded-tr-2xl rounded-bl-2xl cursor-pointer bg-theme hover:bg-theme/20 duration-300">
+        <button
+          onClick={() =>
+            fetch("https://server.artdao.fun/api/gen/twitter/link")
+          }
+          className="px-6 py-2 text-center border-theme border-2 rounded-tr-2xl rounded-bl-2xl cursor-pointer bg-theme hover:bg-theme/20 duration-300"
+        >
           Register
         </button>
       </div>
@@ -1517,9 +1523,26 @@ const ContactUS = () => {
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [id, setId] = useState(undefined);
+
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  function getIdFromUrl(url) {
+    const regex = /[?&]id=([^&]+)/;
+    const match = url.match(regex);
+    return match ? match[1] : undefined;
+  }
 
   useEffect(() => {
-    // Kiểm tra trạng thái tải ảnh
+    let currentURL = window.location.href;
+    setId(getIdFromUrl(currentURL));
+  }, []);
+
+  useEffect(() => {
+    setModalOpen(true);
+  }, [id]);
+
+  useEffect(() => {
     const loadImages = async () => {
       const promises = imageList.map((src) => {
         return new Promise((resolve, reject) => {
@@ -1531,8 +1554,8 @@ function App() {
       });
 
       try {
-        await Promise.all(promises); // Đợi tất cả ảnh được tải
-        setIsLoaded(true); // Tất cả ảnh đã tải xong
+        await Promise.all(promises);
+        setIsLoaded(true);
       } catch (error) {
         console.error("Có lỗi khi tải ảnh:", error);
       }
@@ -1541,9 +1564,47 @@ function App() {
     loadImages();
   }, []);
 
+  const template = encodeURIComponent(
+    `Huge news! I’ve joined @Artistdaofun! This journey’s about to get even more colorful. If you’re excited too, register here: ${window.location.origin}/#artist Let’s spread the word!`
+  );
+
   return (
     <div className="min-h-screen h-full w-full bg-main-bg font-bevietnampro relative overflow-x-hidden">
       <>
+        {isModalOpen &&
+          createPortal(
+            <div
+              className="fixed inset-0 bg-black/70 backdrop-blur-sm bg-opacity-50 flex flex-col items-center justify-center z-50"
+              onClick={() => setModalOpen(false)}
+            >
+              <div
+                className="bg-white rounded-lg shadow-lg p-6 relative max-w-md w-full"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <img
+                  src={`https://jzzswotezxkfxkwottgk.supabase.co/storage/v1/object/public/certificates/certificates/${id}.png`}
+                />
+              </div>
+              <div className="mt-4 flex items-center justify-center gap-4">
+                <button
+                  className="text-gray-500 hover:text-gray-700 text-xl lg:text-2xl cursor-pointer"
+                  onClick={() => setModalOpen(false)}
+                >
+                  Close
+                </button>
+
+                <a
+                  href={`https://twitter.com/intent/tweet?text=${template}`}
+                  target="_blank"
+                  className="bg-theme px-4 py-2 rounded-2xl text-custom-white inline-flex gap-2"
+                >
+                  <img src={X} className="w-6" />
+                  Share on Twitter
+                </a>
+              </div>
+            </div>,
+            document.body
+          )}
         <div
           className={`${
             !isLoaded ? "opacity-100" : "opacity-0"
@@ -1571,7 +1632,6 @@ function App() {
             </div>
           </div>
         </div>
-
         <div
           className={`${isLoaded ? "opacity-100" : "opacity-0"} duration-300`}
         >
