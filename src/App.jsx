@@ -632,7 +632,8 @@ const ArtistSection = () => {
       <div className="w-full mt-6 flex justify-center">
         <button
           onClick={() =>
-            fetch("https://server.artdao.fun/api/gen/twitter/link")
+            (window.location.href =
+              "https://server.artdao.fun/api/gen/twitter/link")
           }
           className="px-6 py-2 text-center border-theme border-2 rounded-tr-2xl rounded-bl-2xl cursor-pointer bg-theme hover:bg-theme/20 duration-300"
         >
@@ -1536,6 +1537,15 @@ function App() {
   useEffect(() => {
     let currentURL = window.location.href;
     setId(getIdFromUrl(currentURL));
+
+    const hash = window.location.hash;
+    if (hash) {
+      const id = hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
   }, []);
 
   useEffect(() => {
@@ -1565,7 +1575,7 @@ function App() {
   }, []);
 
   const template = encodeURIComponent(
-    `Huge news! I’ve joined @Artistdaofun! This journey’s about to get even more colorful. If you’re excited too, register here: ${window.location.origin}/#artist Let’s spread the word! https://jzzswotezxkfxkwottgk.supabase.co/storage/v1/object/public/certificates/certificates/${id}.png`
+    `Huge news! I’ve joined @Artistdaofun! This journey’s about to get even more colorful. If you’re excited too, register here: ${window.location.origin}/#artist Let’s spread the word!`
   );
 
   return (
@@ -1594,7 +1604,7 @@ function App() {
                 </button>
 
                 <a
-                  href={`https://twitter.com/intent/tweet?text=${template}`}
+                  href={`https://twitter.com/intent/tweet?text=${template}&url=https://jzzswotezxkfxkwottgk.supabase.co/storage/v1/object/public/certificates/certificates/${id}.png`}
                   target="_blank"
                   className="bg-theme px-4 py-2 rounded-2xl text-custom-white inline-flex gap-2"
                 >
