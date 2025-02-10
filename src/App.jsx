@@ -1578,15 +1578,29 @@ function App() {
     `Huge news! I’ve joined @Artistdaofun! This journey’s about to get even more colorful. If you’re excited too, register here: ${window.location.origin}/#artist Let’s spread the word!`
   );
 
+  const handleCopyImage = async (url) => {
+    try {
+      const imageUrl = url;
+
+      const response = await fetch(imageUrl);
+      if (!response.ok) {
+        throw new Error("Lỗi khi tải ảnh");
+      }
+
+      const blob = await response.blob();
+
+      const clipboardItem = new ClipboardItem({ [blob.type]: blob });
+      await navigator.clipboard.write([clipboardItem]);
+      alert("Copied");
+    } catch (error) {}
+  };
+
   return (
     <div className="min-h-screen h-full w-full bg-main-bg font-bevietnampro relative overflow-x-hidden">
       <>
         {isModalOpen &&
           createPortal(
-            <div
-              className="fixed inset-0 bg-black/70 backdrop-blur-sm bg-opacity-50 flex flex-col items-center justify-center z-50"
-              onClick={() => setModalOpen(false)}
-            >
+            <div className="fixed inset-0 bg-black/70 backdrop-blur-sm bg-opacity-50 flex flex-col items-center justify-center z-50">
               <div
                 className="bg-white rounded-lg shadow-lg p-6 relative max-w-md w-full"
                 onClick={(e) => e.stopPropagation()}
@@ -1604,13 +1618,24 @@ function App() {
                 </button>
 
                 <a
-                  href={`https://twitter.com/intent/tweet?text=${template}&url=https://jzzswotezxkfxkwottgk.supabase.co/storage/v1/object/public/certificates/certificates/${id}.png`}
+                  href={`https://twitter.com/intent/tweet?text=${template}`}
                   target="_blank"
                   className="bg-theme px-4 py-2 rounded-2xl text-custom-white inline-flex gap-2"
                 >
                   <img src={X} className="w-6" />
                   Share on Twitter
                 </a>
+
+                <button
+                  className="border-theme border-2 cursor-pointer px-4 py-2 rounded-2xl text-custom-white"
+                  onClick={() =>
+                    handleCopyImage(
+                      `https://jzzswotezxkfxkwottgk.supabase.co/storage/v1/object/public/certificates/certificates/${id}.png`
+                    )
+                  }
+                >
+                  Copy Image
+                </button>
               </div>
             </div>,
             document.body
