@@ -170,7 +170,11 @@ const Header = () => {
             Contact partner
           </button>
           <button
-            onClick={() => (window.location.href = "https://docs.artdao.fun/")}
+            onClick={() =>
+              typeof window !== "undefined"
+                ? (window.location.href = "https://docs.artdao.fun/")
+                : undefined
+            }
             className="hover:opacity-55 cursor-pointer"
           >
             Documents
@@ -633,8 +637,10 @@ const ArtistSection = () => {
       <div className="w-full mt-6 flex justify-center">
         <button
           onClick={() =>
-            (window.location.href =
-              "https://server.artdao.fun/api/gen/twitter/link")
+            typeof window !== "undefined"
+              ? (window.location.href =
+                  "https://server.artdao.fun/api/gen/twitter/link")
+              : undefined
           }
           className="px-6 py-2 text-center border-theme border-2 rounded-tr-2xl rounded-bl-2xl cursor-pointer bg-theme hover:bg-theme/20 duration-300"
         >
@@ -1536,18 +1542,20 @@ function App() {
   }
 
   useEffect(() => {
-    let currentURL = window.location.href;
-    setId(getIdFromUrl(currentURL));
+    if (typeof window !== "undefined") {
+      let currentURL = window.location.href;
+      setId(getIdFromUrl(currentURL));
 
-    const hash = window.location.hash;
-    if (hash) {
-      const id = hash.substring(1);
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+      const hash = window.location.hash;
+      if (hash) {
+        const id = hash.substring(1);
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
       }
     }
-  }, []);
+  }, [typeof window]);
 
   useEffect(() => {
     id && setModalOpen(true);
@@ -1576,7 +1584,9 @@ function App() {
   }, []);
 
   const template = encodeURIComponent(
-    `Huge news! I’ve joined @Artistdaofun! This journey’s about to get even more colorful. If you’re excited too, register here: ${window.location.origin}/#artist Let’s spread the word!`
+    `Huge news! I’ve joined @Artistdaofun! This journey’s about to get even more colorful. If you’re excited too, register here: ${
+      typeof window !== "undefined" ? window.location.origin : ""
+    }/#artist Let’s spread the word!`
   );
 
   const handleDownloadImage = async (
@@ -1606,94 +1616,103 @@ function App() {
 
   return (
     <div className="min-h-screen h-full w-full bg-main-bg font-bevietnampro relative overflow-x-hidden">
-      <>
-        {isModalOpen &&
-          createPortal(
-            <div className="fixed inset-0 bg-black/70 backdrop-blur-sm bg-opacity-50 flex flex-col items-center justify-center z-50">
-              <div
-                className="bg-white rounded-lg shadow-lg p-6 relative max-w-md w-full"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <img
-                  src={`https://jzzswotezxkfxkwottgk.supabase.co/storage/v1/object/public/certificates/certificates/${id}.png`}
-                />
-              </div>
-              <div className="mt-4 flex items-center justify-center gap-4">
-                <button
-                  className="text-gray-500 hover:text-gray-700 text-xl lg:text-2xl cursor-pointer"
-                  onClick={() => setModalOpen(false)}
-                >
-                  Close
-                </button>
+      <div
+        className={`${
+          !isLoaded || typeof window === "undefined"
+            ? "opacity-100"
+            : "opacity-0"
+        } duration-300 fixed pointer-events-none h-screen w-screen`}
+      >
+        <div className="h-screen w-screen flex flex-col gap-10 items-center justify-center">
+          <img loading="eager" src={Logo} />
+          <div className="flex space-x-2">
+            {[0, 1, 2].map((dot, index) => (
+              <motion.div
+                key={dot}
+                className="w-4 h-4 bg-custom-white rounded-full"
+                initial={{ y: 0 }}
+                animate={{
+                  y: [-10, 0],
+                }}
+                transition={{
+                  repeat: Infinity, // Lặp lại vô hạn
+                  repeatType: "mirror", // Quay lại khi kết thúc
+                  duration: 0.4, // Thời gian cho mỗi vòng lặp
+                  delay: dot * 0.2, // Thêm độ trễ cho từng chấm
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
 
-                <a
-                  href={`https://twitter.com/intent/tweet?text=${template}`}
-                  target="_blank"
-                  className="bg-theme px-4 py-2 rounded-2xl text-custom-white inline-flex gap-2"
+      {isLoaded && (
+        <>
+          {isModalOpen &&
+            createPortal(
+              <div className="fixed inset-0 bg-black/70 backdrop-blur-sm bg-opacity-50 flex flex-col items-center justify-center z-50">
+                <div
+                  className="bg-white rounded-lg shadow-lg p-6 relative max-w-md w-full"
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  <img src={X} className="w-6" />
-                  Share on Twitter
-                </a>
+                  <img
+                    src={`https://jzzswotezxkfxkwottgk.supabase.co/storage/v1/object/public/certificates/certificates/${id}.png`}
+                  />
+                </div>
+                <div className="mt-4 flex items-center justify-center gap-4">
+                  <button
+                    className="text-gray-500 hover:text-gray-700 text-xl lg:text-2xl cursor-pointer"
+                    onClick={() => setModalOpen(false)}
+                  >
+                    Close
+                  </button>
 
-                <button
-                  onClick={() =>
-                    handleDownloadImage(
-                      `https://jzzswotezxkfxkwottgk.supabase.co/storage/v1/object/public/certificates/certificates/${id}.png`
-                    )
-                  }
-                  download
-                  className="border-theme border-2 cursor-pointer px-4 py-2 rounded-2xl text-custom-white inline-flex gap-4 justify-center items-center"
-                >
-                  <Download className="h-6 w-6 text-custom-white" />
-                  Download Image
-                </button>
-              </div>
-            </div>,
-            document.body
-          )}
-        <div
-          className={`${
-            !isLoaded ? "opacity-100" : "opacity-0"
-          } duration-300 fixed pointer-events-none h-screen w-screen`}
-        >
-          <div className="h-screen w-screen flex flex-col gap-10 items-center justify-center">
-            <img loading="eager" src={Logo} />
-            <div className="flex space-x-2">
-              {[0, 1, 2].map((dot, index) => (
-                <motion.div
-                  key={dot}
-                  className="w-4 h-4 bg-custom-white rounded-full"
-                  initial={{ y: 0 }}
-                  animate={{
-                    y: [-10, 0],
-                  }}
-                  transition={{
-                    repeat: Infinity, // Lặp lại vô hạn
-                    repeatType: "mirror", // Quay lại khi kết thúc
-                    duration: 0.4, // Thời gian cho mỗi vòng lặp
-                    delay: dot * 0.2, // Thêm độ trễ cho từng chấm
-                  }}
-                />
-              ))}
+                  <a
+                    href={`https://twitter.com/intent/tweet?text=${template}&url=${
+                      typeof window !== "undefined" &&
+                      window.location.origin + "?id=" + id
+                    }`}
+                    target="_blank"
+                    className="bg-theme px-4 py-2 rounded-2xl text-custom-white inline-flex gap-2"
+                  >
+                    <img src={X} className="w-6" />
+                    Share on Twitter
+                  </a>
+
+                  <button
+                    onClick={() =>
+                      handleDownloadImage(
+                        `https://jzzswotezxkfxkwottgk.supabase.co/storage/v1/object/public/certificates/certificates/${id}.png`
+                      )
+                    }
+                    download
+                    className="border-theme border-2 cursor-pointer px-4 py-2 rounded-2xl text-custom-white inline-flex gap-4 justify-center items-center"
+                  >
+                    <Download className="h-6 w-6 text-custom-white" />
+                    Download Image
+                  </button>
+                </div>
+              </div>,
+              document.body
+            )}
+
+          <div
+            className={`${isLoaded ? "opacity-100" : "opacity-0"} duration-300`}
+          >
+            <BackGround />
+            <div className="relative z-10 py-6">
+              <Header />
+              <HeroSection />
+              <ArtistSection />
+              <CarouselSection />
+              <NFTSection />
+              <RoadMapSection />
+              <LuckyWheel />
+              <ContactUS />
             </div>
           </div>
-        </div>
-        <div
-          className={`${isLoaded ? "opacity-100" : "opacity-0"} duration-300`}
-        >
-          <BackGround />
-          <div className="relative z-10 py-6">
-            <Header />
-            <HeroSection />
-            <ArtistSection />
-            <CarouselSection />
-            <NFTSection />
-            <RoadMapSection />
-            <LuckyWheel />
-            <ContactUS />
-          </div>
-        </div>
-      </>
+        </>
+      )}
     </div>
   );
 }
